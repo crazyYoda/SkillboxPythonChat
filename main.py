@@ -82,6 +82,7 @@ def del_post():
     del_password = int(request.args["delete"]) # Пароль передается в качестве параметра: http://127.0.0.1:5000/admin_delete_everything?delete=1234
     if del_password == password:
         db.clear()
+        saveMessages()
         return 'Удалены все сообщения'
     else:
         return 'Неверный пароль'
